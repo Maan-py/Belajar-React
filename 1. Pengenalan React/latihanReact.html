@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Belajar React</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+
+
+
+        function HomePage() {
+            const [tambah, setTambah] = React.useState(0);
+
+            function handleTambah() {
+                setTambah(tambah + 1);
+            }
+
+            function handleKurang() {
+                setTambah(tambah - 1);
+            }
+
+            function handleReset() {
+                setTambah(0);
+            }
+
+            return (
+                <>
+                    <button onClick={handleKurang}> -
+                    </button>
+
+                    <span>{tambah}</span>
+
+                    <button onClick={handleTambah}> +
+                    </button>
+
+                    <div>
+                        <button onClick={handleReset}>Reset!</button>
+                    </div>
+                </>
+            )
+        }
+        root.render(<HomePage />);
+    </script>
+</body>
+
+</html>
